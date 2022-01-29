@@ -1,0 +1,268 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Musala Gateway",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/api/gateways/{id}/devices/{device_id}": {
+      "delete": {
+        "tags": [
+          "Gateway"
+        ],
+        "summary": "Delete device from gateway",
+        "operationId": "Deletedevicefromgateway",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "yonrRgyfJbH79d7etEwc"
+            }
+          },
+          {
+            "name": "device_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "yonrRgyfJbH79d7etEwc"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/gateways/{id}": {
+      "get": {
+        "tags": [
+          "Gateway"
+        ],
+        "summary": "Get gatway by ID",
+        "operationId": "GetgatwaybyID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "yonrRgyfJbH79d7etEwc"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/gateways/": {
+      "get": {
+        "tags": [
+          "Gateway"
+        ],
+        "summary": "Get list of gateways",
+        "operationId": "Getlistofgateways",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/gateways/{id}/devices": {
+      "post": {
+        "tags": [
+          "Gateway"
+        ],
+        "summary": "Add device to gateway",
+        "operationId": "Adddevicetogateway",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "yonrRgyfJbH79d7etEwc"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdddevicetogatewayRequest"
+              },
+              "example": {
+                "vendor": "tamer",
+                "status": "offline"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/gateways": {
+      "post": {
+        "tags": [
+          "Gateway"
+        ],
+        "summary": "Create gateway",
+        "operationId": "Creategateway",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreategatewayRequest"
+              },
+              "example": {
+                "name": "musala",
+                "ip": "127.1.0.1",
+                "devices": [
+                  {
+                    "vendor": "arther",
+                    "status": "online"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AdddevicetogatewayRequest": {
+        "title": "AdddevicetogatewayRequest",
+        "required": [
+          "vendor",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "vendor": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "vendor": "ramzy",
+          "status": "offline"
+        }
+      },
+      "CreategatewayRequest": {
+        "title": "CreategatewayRequest",
+        "required": [
+          "name",
+          "ip",
+          "devices"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "ip": {
+            "type": "string"
+          },
+          "devices": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Device"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "name": "Gateway 1",
+          "ip": "127.1.0.1",
+          "devices": [
+            {
+              "vendor": "macro",
+              "status": "online"
+            },
+            {
+              "vendor": "musala",
+              "status": "online"
+            }
+          ]
+        }
+      },
+      "Device": {
+        "title": "Device",
+        "required": [
+          "vendor",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "vendor": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "vendor": "ahmed",
+          "status": "online"
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Gateway",
+      "description": ""
+    }
+  ]
+}

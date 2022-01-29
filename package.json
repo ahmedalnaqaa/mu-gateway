@@ -1,0 +1,48 @@
+{
+  "name": "musala-gateway",
+  "version": "1.0.0",
+  "description": "Gateway for managing devices",
+  "main": "index.cjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "NODE_ENV=development concurrently \"nodemon -w server server/src/index.js\" \"npm run client\"",
+    "client": "npm start --prefix client",
+    "lint": "eslint --fix-dry-run .",
+    "prettier:fix": "prettier --write \"**/*.{js,ts,tsx,json,css,html,yaml,scss,sass}\"",
+    "lint:fix": "eslint --fix . && npm run prettier:fix"
+  },
+  "author": "ahmedalnaqaa",
+  "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "dependencies": {
+    "@hapi/boom": "^9.1.4",
+    "body-parser": "^1.19.1",
+    "celebrate": "^15.0.0",
+    "chalk": "^3.0.0",
+    "concurrently": "^7.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^14.2.0",
+    "express": "^4.17.2",
+    "joi-objectid": "^4.0.2",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.1.7",
+    "morgan": "^1.10.0",
+    "swagger-ui-express": "^4.3.0",
+    "uid2": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.12",
+    "@babel/eslint-parser": "^7.16.5",
+    "eslint": "^8.7.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
+    "pretty-quick": "^3.1.3"
+  }
+}
