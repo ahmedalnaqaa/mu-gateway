@@ -9,6 +9,7 @@ Basic API gateway & dashboard
 
 ## Installation
 - Clone the project
+- Rename file `.env.example` to `.env`
 - Run `docker-compose up`
 
 ## Links
