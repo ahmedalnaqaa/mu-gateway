@@ -15,3 +15,10 @@ Basic API gateway & dashboard
 - API: http://localhost:8080/
 - Swagger API Documentation: http://localhost:8080/api-docs/
 - Dashboard: http://localhost:3000/
+
+## Screenshots
+- ### API docs
+- ![API docs](server/docs/api_docs.png)
+
+- ### Dashboard
+- ![dashboard](server/docs/dashboard.png)
