@@ -18,7 +18,7 @@ Basic API gateway & dashboard
 
 ## Screenshots
 - ### API docs
-- ![API docs](server/docs/api_docs.png)
+![API docs](server/docs/api_docs.png)
 
 - ### Dashboard
-- ![dashboard](server/docs/dashboard.png)
+![dashboard](server/docs/dashboard.png)
